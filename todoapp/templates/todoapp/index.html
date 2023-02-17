@@ -3,12 +3,12 @@
 {% block content %}
 
 <div style="margin-top: 50px;" class="ui container">
-    <h1 class="ui center aligned header">My tasks manager</h1>
-    <h3 class="test_style">Manage your time</h3>
+    <h1 class="ui center aligned header" style="color:rgb(78, 75, 75)"">My tasks manager</h1>
+    <h3 class="test_style" style="color:grey">Manage your time</h3>
     <form class="ui form" action="{% url 'add' %}" method="post">
         {% csrf_token %}
         <div class="field">
-            <label>New task</label>
+            <label style="color:grey">New task</label>
             <input type="text" name="title" placeholder="Enter a name task">
         </div>
         <button class="ui teal basic button" type="submit">Add</button>
@@ -23,7 +23,7 @@
     <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">Done</a>
     {% else %}
     <span class="ui green label">Completed</span>
-    <a class="ui blue button" href="{% url 'update' todo_id=todo.id}">Not achieved</a>
+    <a class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Not achieved</a>
     {% endif %}
     <a class="ui negative basic button" href="{% url 'delete' todo_id=todo.id %}">Remove</a>
 </div>
@@ -31,6 +31,6 @@
 
 
 {% endfor %}
-
+</div>
 
 {% endblock content %}
